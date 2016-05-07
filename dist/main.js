@@ -119,13 +119,20 @@ module.exports =
 	  _createClass(Highlight, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      _highlight2.default.highlightBlock((0, _reactDom.findDOMNode)(this.refs.code));
+	      this.codeBlock();
 	    }
 	  }, {
 	    key: 'componentDidUpdate',
 	    value: function componentDidUpdate() {
 	      _highlight2.default.initHighlighting.called = false;
-	      _highlight2.default.highlightBlock((0, _reactDom.findDOMNode)(this.refs.code));
+	      this.codeBlock();
+	    }
+	  }, {
+	    key: 'codeBlock',
+	    value: function codeBlock() {
+	      var code = this.refs.code;
+	
+	      _highlight2.default.highlightBlock((0, _reactDom.findDOMNode)(code));
 	    }
 	  }, {
 	    key: 'render',

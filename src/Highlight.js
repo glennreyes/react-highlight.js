@@ -9,12 +9,17 @@ export default class Highlight extends Component {
   }
 
   componentDidMount () {
-    highlight.highlightBlock(findDOMNode(this.refs.code))
+    this.codeBlock()
   }
 
   componentDidUpdate () {
     highlight.initHighlighting.called = false
-    highlight.highlightBlock(findDOMNode(this.refs.code))
+    this.codeBlock()
+  }
+
+  codeBlock () {
+    const { code } = this.refs
+    highlight.highlightBlock(findDOMNode(code))
   }
 
   render () {
